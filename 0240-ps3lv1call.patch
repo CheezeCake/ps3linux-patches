@@ -86,9 +86,9 @@
 +	ld r0, 16(r1)
 +	mtlr r0
 +	blr
---- /dev/null	2013-02-13 19:35:09.393146190 +0100
-+++ b/drivers/char/ps3lv1call/ps3lv1call_misc.c	2013-02-12 20:22:36.473200805 +0100
-@@ -0,0 +1,158 @@
+--- /dev/null
++++ b/drivers/char/ps3lv1call/ps3lv1call_misc.c
+@@ -0,0 +1,165 @@
 +/*
 + * PS3 LV1 Call
 + *
@@ -180,6 +180,12 @@
 +	return (rv);
 +}
 +
++static int ps3lv1call_open(struct inode *inode, struct file *file)
++{
++	file->private_data = NULL;
++	return 0;
++}
++
 +static ssize_t ps3lv1call_write(struct file *file, const char __user *buf,
 +    size_t size, loff_t *pos)
 +{
@@ -215,6 +221,7 @@
 +
 +static const struct file_operations ps3lv1call_fops = {
 +	.owner		= THIS_MODULE,
++	.open		= ps3lv1call_open,
 +	.write		= ps3lv1call_write,
 +	.read		= ps3lv1call_read,
 +	.release	= simple_transaction_release,
