@@ -818,8 +818,8 @@
 +		goto fail_unmap_problem;
 +	}
 +
-+	spuldrfs_spe_shadow = __ioremap(spuldrfs_spe_shadow_addr, sizeof(struct spe_shadow),
-+		_PAGE_NO_CACHE | 3);
++	spuldrfs_spe_shadow = ioremap_prot(spuldrfs_spe_shadow_addr, sizeof(struct spe_shadow),
++		pgprot_val(pgprot_noncached_wc(PAGE_KERNEL_RO)));
 +	if (!spuldrfs_spe_shadow) {
 +		err = -ENOMEM;
 +		goto fail_unmap_ls;
