@@ -16,14 +16,14 @@
 
 --- a/drivers/char/Makefile
 +++ b/drivers/char/Makefile
-@@ -47,6 +47,7 @@ obj-$(CONFIG_HANGCHECK_TIMER)	+= hangcheck-timer.o
+@@ -43,6 +43,7 @@ obj-$(CONFIG_HANGCHECK_TIMER)	+= hangcheck-timer.o
  obj-$(CONFIG_TCG_TPM)		+= tpm/
  
  obj-$(CONFIG_PS3_FLASH)		+= ps3flash.o
 +obj-$(CONFIG_PS3_STRGMNGR)	+= ps3strgmngr.o
  
- obj-$(CONFIG_JS_RTC)		+= js-rtc.o
- js-rtc-y = rtc.o
+ obj-$(CONFIG_XILLYBUS)		+= xillybus/
+ obj-$(CONFIG_POWERNV_OP_PANEL)	+= powernv-op-panel.o
 --- a/arch/powerpc/platforms/ps3/Kconfig
 +++ b/arch/powerpc/platforms/ps3/Kconfig
 @@ -188,6 +188,13 @@ config PS3_LPM

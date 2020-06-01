@@ -95,14 +95,14 @@
  	depends on PPC_PS3
 --- a/drivers/char/Makefile	2018-12-26 11:36:10.222679391 +0100
 +++ b/drivers/char/Makefile	2018-12-26 11:37:07.674950989 +0100
-@@ -52,6 +52,7 @@
+@@ -44,6 +44,7 @@
  
  obj-$(CONFIG_PS3_FLASH)		+= ps3flash.o
  obj-$(CONFIG_PS3_STRGMNGR)	+= ps3strgmngr.o
 +obj-$(CONFIG_PS3_ENCDEC)	+= ps3encdec.o
  
- obj-$(CONFIG_JS_RTC)		+= js-rtc.o
- js-rtc-y = rtc.o
+ obj-$(CONFIG_XILLYBUS)		+= xillybus/
+ obj-$(CONFIG_POWERNV_OP_PANEL)	+= powernv-op-panel.o
 --- /dev/null	2012-08-07 02:54:53.492474007 +0200
 +++ b/drivers/char/ps3encdec.c	2012-08-07 02:56:38.822480157 +0200
 @@ -0,0 +1,395 @@
