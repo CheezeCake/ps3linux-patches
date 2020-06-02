@@ -26,9 +26,9 @@
  obj-$(CONFIG_POWERNV_OP_PANEL)	+= powernv-op-panel.o
 --- a/arch/powerpc/platforms/ps3/Kconfig
 +++ b/arch/powerpc/platforms/ps3/Kconfig
-@@ -188,6 +188,13 @@ config PS3_LPM
- 	  profiling support of the Cell processor with programs like
- 	  oprofile and perfmon2, then say Y or M, otherwise say N.
+@@ -194,6 +194,13 @@ config PS3_PHYSMEM
+ 	help
+ 	  This driver allows you direct access to the PS3 physical memory.
  
 +config PS3_STRGMNGR
 +	tristate "PS3 Storage Manager Driver"
